@@ -69,5 +69,29 @@ body {
   transform: rotate(-10deg);
 }
 
+/*-- banner  links *--*/
+.max-height {
+  min-height: calc(100vh - 76px);
+  background: linear-gradient(var(--yellowTrans), var(--yellowTrans)),url('../img/headerBcg.jpeg') center/cover fixed no-repeat;
+  position: relative;
+}
+
+.banner {
+  color: var(--mainWhite);
+  margin-top: 4rem;
+}
+
+.banner-link {
+  font-size: 1.5rem;
+  color: var(--mainBlack);
+  border: .2rem solid var(--mainBlack);
+  transition: all .5s ease-in-out;
+}
+
+.banner-link:hover {
+  background: var(--mainBlack);
+  color: var(--mainPink);
+}
+/*-- end of banner  links *--*/
 
 /*-- end of nav links *--*/
