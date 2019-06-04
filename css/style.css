@@ -14,3 +14,60 @@ body {
   background: var(--mainWhite);
   color: var(--mainBlack);
 }
+
+/*-- nav links *--*/
+.navbar-toggler {
+  outline: none !important;
+}
+
+.toggler-icon {
+  font-size: 2.5rem;
+  color: var(--mainPink);
+}
+
+.nav-link {
+  color: var(--mainPink);
+  font-size: 1.5rem;
+  transition: all .3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--mainBlack);
+}
+
+/*-- cart styles *--*/
+.cart-info__icon {
+  color: var(--mainBlack);
+  cursor: pointer;
+}
+
+.cart-info {
+  border: .1rem solid var(--mainBlack);
+  color: var(--mainBlack);
+  border-radius: .25rem;
+  padding: .4rem .6rem;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+}
+
+.cart-info:hover {
+  background: var(--mainPink);
+  border-color: var(--mainPink);
+  color: var(--mainWhite);
+}
+
+.cart-info:hover .cart-info__icon {
+  color: var(--mainYellow);
+}
+
+.nav-phone {
+  transition: all .5s ease;
+  cursor: pointer;
+}
+
+.nav-phone:hover {
+  transform: rotate(-10deg);
+}
+
+
+/*-- end of nav links *--*/
