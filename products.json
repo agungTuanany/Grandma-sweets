@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "sys": { "id": "1" },
+      "fields": {
+        "title": "cake-1",
+        "price": 5,
+        "image": { "fields": { "file": { "url": "./img/cake-1.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "2" },
+      "fields": {
+        "title": "cake-2",
+        "price": 5,
+        "image": { "fields": { "file": { "url": "./img/cake-2.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "3" },
+      "fields": {
+        "title": "cake-2",
+        "price": 5,
+        "image": { "fields": { "file": { "url": "./img/cake-3.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "4" },
+      "fields": {
+        "title": "cupcake-1",
+        "price": 6,
+        "image": { "fields": { "file": { "url": "./img/cupcake-1.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "5" },
+      "fields": {
+        "title": "cupcake-2",
+        "price": 6,
+        "image": { "fields": { "file": { "url": "./img/cupcake-2.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "6" },
+      "fields": {
+        "title": "cupcake-3",
+        "price": 6,
+        "image": { "fields": { "file": { "url": "./img/cupcake-3.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "7" },
+      "fields": {
+        "title": "sweets-1",
+        "price": 5,
+        "image": { "fields": { "file": { "url": "./img/sweets-1.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "8" },
+      "fields": {
+        "title": "sweets-2",
+        "price": 5,
+        "image": { "fields": { "file": { "url": "./img/sweets-2.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "9" },
+      "fields": {
+        "title": "sweets-3",
+        "price": 5,
+        "image": { "fields": { "file": { "url": "./img/sweets-3.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "10" },
+      "fields": {
+        "title": "doughnut-1",
+        "price": 10,
+        "image": { "fields": { "file": { "url": "./img/doughnut-1.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "11" },
+      "fields": {
+        "title": "doughnut-2",
+        "price": 10,
+        "image": { "fields": { "file": { "url": "./img/doughnut-2.jpeg" } } }
+      }
+    },
+    {
+      "sys": { "id": "12" },
+      "fields": {
+        "title": "doughnut-3",
+        "price": 10,
+        "image": { "fields": { "file": { "url": "./img/doughnut-3.jpeg" } } }
+      }
+    }
+  ]
+}
