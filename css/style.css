@@ -254,3 +254,42 @@ body {
 }
 
 /*-- end of footer *--*/
+
+/*-- cart *--*/
+.cart {
+  position: absolute;
+  min-height: 10rem;
+  background: rgba(255,255,255, 0.4);
+  top: 0;
+  right: 0;
+  transition: all .3s ease-in-out;
+  width: 0;
+  overflow: hidden;
+}
+
+.show-cart {
+  width: 20rem;
+  padding: 2rem 1.5rem;
+  transform: rotateY(-360deg)
+}
+
+.cart-item-remove {
+  color: var(--mainPink);
+  transition: all .7s ease-in-out;
+}
+
+.cart-item {
+  transition: all 2s ease-in-out;
+}
+
+.cart-item-remove:hover {
+  transform: scale(1.1);
+  color: var(--mainBlack);
+}
+
+.cart-item-price {
+  font-size: .8rem;
+}
+
+
+/*-- end of cart *--*/
