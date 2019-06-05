@@ -217,5 +217,40 @@ body {
 .service-text {
   word-spacing: .5rem;
 }
-
 /*-- end of services *--*/
+
+/*-- footer *--*/
+.footer-title {
+  background: var(--mainBlack);
+}
+
+.banner-title__footer {
+  font-size: 1.5rem;
+  color: var(--mainPink);
+}
+
+.footer-contact {
+  background: var(--mainGrey);
+}
+
+.footer-icon {
+  font-size: 1.5rem;
+  color: var(--mainWhite);
+  transition: all .4s ease-in-out;
+}
+
+.footer-icon:hover {
+  color: var(--mainPink);
+}
+
+.footer-icon__contact {
+  font-size: 1.5rem;
+  color: var(--mainPink);
+  transition: all .4s ease-in-out;
+}
+
+.footer-icon__contact:hover {
+  color: var(--mainBlack);
+}
+
+/*-- end of footer *--*/
