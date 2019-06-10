@@ -1,11 +1,16 @@
+/*
 document.getElementById("cart-info").addEventListener("click", function() {
   const cart = document.getElementById("cart");
   cart.classList.toggle("show-cart");
   console.log(cart);
 });
+*/
 
 /* vanilla JS */
 const productsDOM = document.querySelector('.store-item');
+
+// cart
+let cart = [];
 
 class Products {
   async getProducts() {
@@ -13,7 +18,7 @@ class Products {
       let result = await fetch('products.json');
       let data = await result.json();
       let products = data.items;
-      console.log(products);
+      //console.log(products);
       products = products.map(item => {
         const { title, price } = item.fields;
         const { id } = item.sys;
@@ -38,9 +43,10 @@ class UI {
           <div class='card single-item'>
             <div class='img-container'>
               <img src=${product.image} class='card-img-top store-img' alt=${product.title}>
-              <span class='store-item-icon'>
+              <button class='bag-button store-item-icon' data-id=${product.id}>
                 <i class='fas fa-shopping-cart'></i>
-              </span>
+                add to bag
+              </button>
             </div>
             <div class='card-body'>
               <div class='card-text d-flex justify-content-between text-capitalize'>
@@ -55,9 +61,43 @@ class UI {
       `;
     });
     productsDOM.innerHTML = result;
+  };
 
+  getBagButtons() {
+    const buttons = [...document.querySelectorAll('.bag-button')];
+    // console.log(buttons)
+    buttons.forEach(button => {
+      let id = button.dataset.id;
+      // console.log(id);
+      let inCart = cart.find(item => item.id === id);
+      // console.log(inCart);
+      if(inCart) {
+        button.innerText = 'In Cart';
+        button.disabled = true;
+      } else {
+        button.addEventListener('click', (event) => {
+          // console.log(event);
+          event.target.innerText = 'in Cart';
+          event.target.disabled = true;
+        });
+      }
+
+    });
+
+  }
+}
+
+class Storage {
+  static saveProducts(products) {
+    localStorage.setItem("products", JSON.stringify(products));
   };
 }
+
+
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const ui = new UI();
@@ -65,6 +105,87 @@ document.addEventListener('DOMContentLoaded', () => {
 
   products.getProducts().then(products => {
     ui.displayProducts(products);
-  });
+    Storage.saveProducts(products);
+  }).then(() => {
+    ui.getBagButtons();
+  })
 
 });
+
+(function() {
+
+  const cartInfo = document.getElementById('cart-info');
+  const cart = document.getElementById('cart');
+
+  cartInfo.addEventListener('click', () => {
+    cart.classList.toggle('show-cart');
+    console.log( cart );
+  })
+
+})();
+
+/*
+document.getElementById("cart-info").addEventListener("click", function() {
+  const cart = document.getElementById("cart");
+  cart.classList.toggle("show-cart");
+  console.log(cart);
+});
+*/
+
+(function() {
+
+  const cartBtn = document.querySelectorAll('.store-item-icon');
+
+
+  cartBtn.forEach(btn => {
+    btn.addEventListener('click',(event) => {
+      //console.log(event.targert);
+
+      if (event.target.parentElement.classList.contains('store-item-icon')) {
+        //console.log(event.target.parentElement.previousElementsSibling.src);
+        let fullPath = event.target.parentElement.previousElementSibling.src;
+        let pos = fullPath.indexOf('img') + 3;
+        let partPath = fullPath.slice(pos);
+
+        const item = {};
+        item.img = `img-cart${partPath}`;
+        let name = event.target.parentElement.parentELement.nextElementSibling.children[0].children[0].textContent;
+        item.name = name;
+        let price = event.target.parentElement.parentELement.nextElementSibling.children[0].children[1].textContent;
+        let finalPrice = price.slice(1).trim();
+        item.price = finalPrice;
+        // console.log(finalPrice);
+
+        // console.log(name);
+
+        // console.log(item);
+
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item ', 'd-flex', 'justify-content-between', 'text-capitalize', 'my-3');
+        cartItem.innerHTML = `
+
+          <img src='${item.img}' class='img-fluid rounded-circle' id='item-img' alt='item-cart'>
+          <div class='item-text'>
+            <p id='cart-item-title' class='font-weight-bold mb-0'>${item.name}</p>
+            <span>$</span>
+            <span id='cart-item-price' class='cart-item-price'>${item.price}</span>
+            <a href="#" id='cart-item-remove' class='cart-item-remove'>
+              <i class='fas fa-trash'></i>
+            </a>
+          </div>
+        `;
+
+        // select cart
+        const cart =document.getElementByid('cart');
+        const total = document.querySelector('.cart-total-container');
+
+        cart.insertBefore(cartItem, total);
+        alert('item has been added on cart');
+
+      }
+    });
+  });
+
+
+})();
+
