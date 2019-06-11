@@ -10,6 +10,7 @@ document.getElementById("cart-info").addEventListener("click", function() {
 const productsDOM = document.querySelector('.store-item');
 const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.item-total');
+const cartItemTotal = document.querySelector('.cart-item-total');
 
 // cart
 let cart = [];
@@ -113,6 +114,7 @@ class UI {
     });
     cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
     cartItems.innerText = itemsTotal;
+    cartItemTotal.innerText = parseFloat(tempTotal.toFixed(2));
     console.log(cartTotal, cartItems);
   };
 
