@@ -8,6 +8,8 @@ document.getElementById("cart-info").addEventListener("click", function() {
 
 /* vanilla JS */
 const productsDOM = document.querySelector('.store-item');
+const cartItems = document.querySelector('.cart-items');
+const cartTotal = document.querySelector('.item-total');
 
 // cart
 let cart = [];
@@ -91,8 +93,8 @@ class UI {
           // console.log(cart);
           // 3. save cart in local storage
           Storage.saveCart(cart);
-
           // 4. set cart values
+          this.setCartValues(cart);
           // 5. display cart item
           // 6. show the cart
         });
@@ -101,6 +103,19 @@ class UI {
     });
 
   }
+  setCartValues(cart) {
+    let tempTotal = 0;
+    let itemsTotal = 0;
+
+    cart.map(item => {
+      tempTotal += item.price * item.amount;
+      itemsTotal += item.amount;
+    });
+    cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
+    cartItems.innerText = itemsTotal;
+    console.log(cartTotal, cartItems);
+  };
+
 }
 
 class Storage {
