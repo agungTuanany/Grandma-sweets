@@ -273,6 +273,10 @@ body {
   transform: rotateY(-360deg)
 }
 
+.item-img {
+  max-width: 45%;
+}
+
 .cart-item-remove {
   color: var(--mainPink);
   transition: all .7s ease-in-out;

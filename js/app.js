@@ -11,6 +11,8 @@ const productsDOM = document.querySelector('.store-item');
 const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.item-total');
 const cartItemTotal = document.querySelector('.cart-item-total');
+const cartContent =document.querySelector('.cart-content');
+const total = document.querySelector('.cart-total-container');
 
 // cart
 let cart = [];
@@ -96,14 +98,14 @@ class UI {
           Storage.saveCart(cart);
           // 4. set cart values
           this.setCartValues(cart);
-          // 5. display cart item
+          // 5. display cart item | cartItem refer to let cartItem
+          this.addCartItem(cartItem)
           // 6. show the cart
         });
       }
-
     });
+  };
 
-  }
   setCartValues(cart) {
     let tempTotal = 0;
     let itemsTotal = 0;
@@ -115,7 +117,22 @@ class UI {
     cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
     cartItems.innerText = itemsTotal;
     cartItemTotal.innerText = parseFloat(tempTotal.toFixed(2));
-    console.log(cartTotal, cartItems);
+    //console.log(cartTotal, cartItems);
+  };
+
+  addCartItem(item) {
+    const cartItem = document.createElement('div');
+    cartItem.classList.add('cart-item', 'd-flex', 'justify-content-between', 'text-capitalize', 'my-3');
+    cartItem.innerHTML = `
+      <img src=${item.image} class='item-img img-fluid rounded-circle' id='item-img' alt=''>
+      <div class='item-text'>
+        <p id='cart-item-title' class='font-weight-bold mb-0'>${item.title}</p>
+        <span>$ </span>
+        <span id='cart-item-price' class='cart-item-price mb-0'>${item.price}</span>
+      </div>
+      <a href='#' id='cart-item-remove' class='cart-item-remove'><i class='fas fa-trash'></i></a>
+    `;
+    cartContent.insertBefore(cartItem,total );
   };
 
 }
@@ -132,8 +149,8 @@ class Storage {
 
   static saveCart(cart) {
     localStorage.setItem('cart', JSON.stringify(cart));
-  }
-}
+  };
+};
 
 
 
